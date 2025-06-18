@@ -12,10 +12,17 @@ These images were converted to RGB format using python and the images have been 
 
 The dataset has been balanced using oversampling the under-represented classes and undersampling the over-represented ones. After balancing the classes all the classes consists 2617 images making it a total of 26170 images across all the classes. 
 
-<div style="display: flex; justify-content: center; align-items: flex-start; gap: 10px;">
-    <img src="images/sample_images.jpg" alt="Sample Images" style="max-width: 48%; height: auto;">
-    <img src="images/image_labels.png" alt="Image Labels" style="max-width: 48%; height: auto;">
+<div style="display: flex; justify-content: center; gap: 20px;">
+  <div style="text-align: center;">
+    <img src="images/sample_images.jpg" alt="Description of Sample Images" style="max-width: 80%; height: auto;">
+    <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Fig 1: Sample images for analysis.</p>
+  </div>
+  <div style="text-align: center;">
+    <img src="images/image_labels.png" alt="Description of Image Labels" style="max-width: 130%; height: auto;">
+    <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Fig 2: image Labels.</p>
+  </div>
 </div>
+
 
 ### Reshaping
 
@@ -31,38 +38,59 @@ I have split my data using a 80:10:10 ratio. The 80\% training data provides amp
 
 I built a KNN classifier on the raw data after pre processing the data. I plotted a 2D plot of all the classes for comparison with other plots after reducing the dimensions. The plot can be seen below in figure. 
 
-![Fig: 2D plot of raw data](images/raw_data_2d.png)
+<div style="text-align: center;">
+    <img src="images/raw_data_2d.png" alt="2D plot of raw data" style="max-width: 50%; height: 50%;">
+    <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Fig: 2D plot of raw data</p>
+</div>
 
-Fig: 2D plot of raw data
+<!-- ![performace_ra_data.png](images/performace_ra_data.png) -->
+<div style="text-align: center;">
+    <img src="images/performace_ra_data.png" alt="Performance of raw data" style="max-width: 50%; height: 50%;">
+</div>
 
-![performace_ra_data.png](images/performace_ra_data.png)
 ### PCA
 
 Due to limited amount of computational resources I was able to run PCA for only 6000 components which is almost half of the total components (64*64*3 = 12288). After running PCA to decide on the number of components to retain to transform the data I calculated explained variance and plotted a screeplot which can be seen in figure 8. We can also see the 2D representation of the data after reducing it using PCA in the figure. 
 
-![Fig: 2D plot of PCA data](images/pca_2d.png)
+<div style="display: flex; justify-content: center; gap: 20px;">
+    <div style="text-align: center;">
+        <img src="images/pca_2d.png" alt="2D plot of PCA" style="max-width: 100%; height: auto;">
+        <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Fig: 2D plot of PCA data</p>
+    </div>
 
-Fig: 2D plot of PCA data
+<div style="text-align: center;">
+    <img src="images/scree_plot_pca.jpg" alt="PCA Scree plot" style="max-width: 100%; height: auto;">
+    <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Fig: Scree plot of PCA components</p>
+</div>
 
-![Fig: Scree plot of PCA components](images/scree_plot_pca.jpg)
-
-Fig: Scree plot of PCA components
+</div>
 
 In the plot mentioned above in figure, we can observe that the data points are more spread out and separated compared to the raw data representation. This is because PCA aims to find a lower-dimensional subspace that best preserves the variance in the data, potentially making it easier to separate the classes. However, some overlap between classes is still evident, suggesting that linear methods like PCA may not be sufficient for this particular dataset.
 
 I have considered a range of values in the elbow of the scree plot above and calculated the accuracy for all the values in increments of 50 and plotted graphs to pick the number of principal components to retain. The plots can be seen below. 
 
-![Fig: Variance vs components](images/variance_components_pca_final.png)
 
-Fig: Variance vs components
+<div style="display: flex; justify-content: center; gap: 20px;">
+    <div style="text-align: center;">
+        <img src="images/variance_components_pca_final.png" alt="Fig: Variance vs components" style="max-width: 100%; height: auto;">
+        <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Fig: Variance vs components</p>
+    </div>
 
-![Fig: Accuracy vs components](images/accuracy_components_pca_final.png)
+<div style="text-align: center;">
+    <img src="images/accuracy_components_pca_final.png" alt="Fig: Accuracy vs components" style="max-width: 100%; height: auto;">
+    <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Fig: Accuracy vs components</p>
+</div>
 
-Fig: Accuracy vs components
+</div>
 
 From the figure 9 we can see that retaining 400 components has the highest accuracy which is 29.4\% and it retains 87.2% of variance where as 650 components are giving an accuracy of 28.8% but are retaining a variance of 89.6%. Striking a balance between the variance retained as well as getting a good accuracy is important so I have considered to retain 600 components and the metrics can be seen in the below table. 
 
-![performance_PCa.png](images/performance_PCa.png)
+<!-- ![performance_PCa.png](images/performance_PCa.png) -->
+
+<div style="text-align: center;">
+    <img src="images/performance_PCa.png" alt="Fig: PCA performance" style="max-width: 60%; height: auto;">
+    <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Fig: PCA performance</p>
+</div>
 
 I observed that the accuracy of our model improved when compared to raw data. PCA works well when the relationships between features are linear. However, in image data, especially animal images, the relationships between pixel values can be highly nonlinear due to variations in color, texture, shape, and other visual attributes. Which is why we can see the accuracy of our model did not improve by a lot.
 
@@ -70,9 +98,20 @@ I observed that the accuracy of our model improved when compared to raw data. PC
 
 I was unable to perform KPCA to preserve a said number of components like PCA due to computational resources. After reducing the number of components from 6000 till 100 I was always encountering the error of 'out of memory' hence had to leave the number of components to default (i.e, 2). the 2D representation of the data can be seen in the figure below.
 
-![kpca_2d.png](images/kpca_2d.png)
+<!-- ![kpca_2d.png](images/kpca_2d.png) -->
+<div style="text-align: center;">
+    <img src="images/kpca_2d.png" alt="Fig: 2D plot of KPCA" style="max-width: 60%; height: auto;">
+    <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Fig: 2D plot of KPCA</p>
+</div>
 
-![performace_kpca.png](images/performace_kpca.png)
+
+<!-- ![performace_kpca.png](images/performace_kpca.png) -->
+<div style="text-align: center;">
+    <img src="images/performace_kpca.png" alt="Fig: KPCA performance" style="max-width: 60%; height: auto;">
+    <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Fig: KPCA performance</p>
+</div>
+
+
 
 We know that PCA finds linear combinations of the original features KPCA, on the other hand, is well-suited for capturing nonlinear relationships in image data by leveraging kernel functions. It can map data onto higher dimensional feature space where non-liner relationships are easier to capture. This allows KPCA to extract more meaningful features from the image data, capturing complex patterns and variations that PCA might miss.  Animal images often contain complex patterns and variations that can be well captured using certain non-linear techniques using KPCA making it a better fit and more effective 
 
@@ -80,11 +119,22 @@ We know that PCA finds linear combinations of the original features KPCA, on the
 
 To reduce the dimensions of my data using LLE I have changed the value of the the number of neighbors that LLE will consider from 2 to 30 to see how the accuracy of the classification model will change with the change in the number of neighbors. Few of the results are discussed in the table below.
 
-![Fig: 2D representation of LLE](images/lle_2d_classes.png)
+<!-- ![Fig: 2D representation of LLE](images/lle_2d_classes.png)
 
-Fig: 2D representation of LLE
+Fig: 2D representation of LLE -->
 
-![performace_lle.png](images/performace_lle.png)
+<div style="text-align: center;">
+    <img src="images/lle_2d_classes.png" alt="Fig: 2D representation of LLE" style="max-width: 60%; height: auto;">
+    <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Fig: 2D representation of LLE</p>
+</div>
+
+
+<!-- ![performace_lle.png](images/performace_lle.png) -->
+<div style="text-align: center;">
+    <img src="images/performace_lle.png" alt="Fig: LLE performance" style="max-width: 60%; height: auto;">
+    <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Fig: LLE performance</p>
+</div>
+
 
 In the plot above, we can observe that the data points are more clustered and separated compared to both the raw data and PCA representations. While there is still some overlap between classes, LLE appears to have done a better job of separating the classes, especially for certain clusters or groups within each class. 
 
@@ -92,7 +142,11 @@ We can see above that the best accuracy for LLE occurred when we chose 30 neighb
 
 ## Comparison
 
-![performace_comparision.png](images/performace_comparision.png)
+<!-- ![performace_comparision.png](images/performace_comparision.png) -->
+<div style="text-align: center;">
+    <img src="images/performace_comparision.png" alt="Fig: Performance comparision" style="max-width: 60%; height: auto;">
+    <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Fig: Performance comparision</p>
+</div>
 
 KPCA performed the best in terms of both accuracy and F1 score, likely due to its ability to capture non-linear patterns in the image data through kernel functions. 
 

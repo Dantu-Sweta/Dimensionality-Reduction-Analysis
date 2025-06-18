@@ -23,6 +23,11 @@ The dataset has been balanced using oversampling the under-represented classes a
   </div>
 </div>
 
+<img src="images/sample_images.jpg"
+     alt="Architecture"
+     style="float: center"
+     width = 500px/>
+
 
 ### Reshaping
 

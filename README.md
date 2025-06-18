@@ -20,7 +20,7 @@ The dataset has been balanced using oversampling the under-represented classes a
 <img src="images/image_labels.png" 
   alt="Description of Image Labels" 
   style="float: center"
-  width = 500px/>
+  width = 50px/>
 
 
 ### Reshaping
@@ -82,19 +82,11 @@ I observed that the accuracy of our model improved when compared to raw data. PC
 
 I was unable to perform KPCA to preserve a said number of components like PCA due to computational resources. After reducing the number of components from 6000 till 100 I was always encountering the error of 'out of memory' hence had to leave the number of components to default (i.e, 2). the 2D representation of the data can be seen in the figure below.
 
-<!-- ![kpca_2d.png](images/kpca_2d.png) -->
-<div style="text-align: center;">
-    <img src="images/kpca_2d.png" alt="Fig: 2D plot of KPCA" style="max-width: 30%; height: auto;">
-    <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Fig: 2D plot of KPCA</p>
-</div>
-
-
-<!-- ![performace_kpca.png](images/performace_kpca.png) -->
-<div style="text-align: center;">
-    <img src="images/performace_kpca.png" alt="Fig: KPCA performance" style="max-width: 30%; height: auto;">
-    <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Fig: KPCA performance</p>
-</div>
-
+<img src="images/kpca_2d.png" alt="Fig: 2D plot of KPCA" style="float: center"
+  width = 500px/>
+  
+<img src="images/performace_kpca.png" alt="Fig: KPCA performance" style="float: center"
+  width = 500px/>
 
 
 We know that PCA finds linear combinations of the original features KPCA, on the other hand, is well-suited for capturing nonlinear relationships in image data by leveraging kernel functions. It can map data onto higher dimensional feature space where non-liner relationships are easier to capture. This allows KPCA to extract more meaningful features from the image data, capturing complex patterns and variations that PCA might miss.  Animal images often contain complex patterns and variations that can be well captured using certain non-linear techniques using KPCA making it a better fit and more effective 
@@ -103,21 +95,11 @@ We know that PCA finds linear combinations of the original features KPCA, on the
 
 To reduce the dimensions of my data using LLE I have changed the value of the the number of neighbors that LLE will consider from 2 to 30 to see how the accuracy of the classification model will change with the change in the number of neighbors. Few of the results are discussed in the table below.
 
-<!-- ![Fig: 2D representation of LLE](images/lle_2d_classes.png)
+<img src="images/lle_2d_classes.png" alt="Fig: 2D representation of LLE" style="float: center"
+  width = 500px/>
 
-Fig: 2D representation of LLE -->
-
-<div style="text-align: center;">
-    <img src="images/lle_2d_classes.png" alt="Fig: 2D representation of LLE" style="max-width: 30%; height: auto;">
-    <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Fig: 2D representation of LLE</p>
-</div>
-
-
-<!-- ![performace_lle.png](images/performace_lle.png) -->
-<div style="text-align: center;">
-    <img src="images/performace_lle.png" alt="Fig: LLE performance" style="max-width: 30%; height: auto;">
-    <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Fig: LLE performance</p>
-</div>
+<img src="images/performace_lle.png" alt="Fig: LLE performance" style="float: center"
+  width = 500px/>
 
 
 In the plot above, we can observe that the data points are more clustered and separated compared to both the raw data and PCA representations. While there is still some overlap between classes, LLE appears to have done a better job of separating the classes, especially for certain clusters or groups within each class. 
@@ -126,11 +108,8 @@ We can see above that the best accuracy for LLE occurred when we chose 30 neighb
 
 ## Comparison
 
-<!-- ![performace_comparision.png](images/performace_comparision.png) -->
-<div style="text-align: center;">
-    <img src="images/performace_comparision.png" alt="Fig: Performance comparision" style="max-width: 30%; height: auto;">
-    <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Fig: Performance comparision</p>
-</div>
+<img src="images/performace_comparision.png" alt="Fig: Performance comparision" style="float: center"
+  width = 500px/>
 
 KPCA performed the best in terms of both accuracy and F1 score, likely due to its ability to capture non-linear patterns in the image data through kernel functions. 
 

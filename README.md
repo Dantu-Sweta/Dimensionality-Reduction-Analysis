@@ -20,7 +20,7 @@ The dataset has been balanced using oversampling the under-represented classes a
 <img src="images/image_labels.png" 
   alt="Description of Image Labels" 
   style="float: center"
-  width = 50px/>
+  width = 300px/>
 
 
 ### Reshaping

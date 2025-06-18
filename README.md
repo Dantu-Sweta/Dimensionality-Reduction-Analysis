@@ -14,11 +14,11 @@ The dataset has been balanced using oversampling the under-represented classes a
 
 <div style="display: flex; justify-content: center; gap: 20px;">
   <div style="text-align: center;">
-    <img src="images/sample_images.jpg" alt="Description of Sample Images" style="max-width: 50%; height: auto;">
+    <img src="images/sample_images.jpg" alt="Description of Sample Images" style="max-width: 50px; height: auto;">
     <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Fig 1: Sample images for analysis.</p>
   </div>
   <div style="text-align: center;">
-    <img src="images/image_labels.png" alt="Description of Image Labels" style="max-width: 50%; height: auto;">
+    <img src="images/image_labels.png" alt="Description of Image Labels" style="max-width: 50px; height: auto;">
     <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Fig 2: image Labels.</p>
   </div>
 </div>

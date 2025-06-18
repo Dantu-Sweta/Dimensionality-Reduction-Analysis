@@ -12,21 +12,15 @@ These images were converted to RGB format using python and the images have been 
 
 The dataset has been balanced using oversampling the under-represented classes and undersampling the over-represented ones. After balancing the classes all the classes consists 2617 images making it a total of 26170 images across all the classes. 
 
-<div style="display: flex; justify-content: center; gap: 20px;">
-  <div style="text-align: center;">
-    <img src="images/sample_images.jpg" alt="Description of Sample Images" style="max-width: 50px; height: auto;">
-    <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Fig 1: Sample images for analysis.</p>
-  </div>
-  <div style="text-align: center;">
-    <img src="images/image_labels.png" alt="Description of Image Labels" style="max-width: 50px; height: auto;">
-    <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Fig 2: image Labels.</p>
-  </div>
-</div>
-
 <img src="images/sample_images.jpg"
      alt="Architecture"
      style="float: center"
      width = 500px/>
+
+<img src="images/image_labels.png" 
+  alt="Description of Image Labels" 
+  style="float: center"
+  width = 500px/>
 
 
 ### Reshaping
@@ -43,21 +37,20 @@ I have split my data using a 80:10:10 ratio. The 80\% training data provides amp
 
 I built a KNN classifier on the raw data after pre processing the data. I plotted a 2D plot of all the classes for comparison with other plots after reducing the dimensions. The plot can be seen below in figure. 
 
-<div style="text-align: center;">
-    <img src="images/raw_data_2d.png" alt="2D plot of raw data" style="max-width: 30%; height: 30%;">
-    <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Fig: 2D plot of raw data</p>
-</div>
+
+<img src="images/raw_data_2d.png" alt="2D plot of raw data" 
+  style="float: center"
+  width = 500px/>
 
 <!-- ![performace_ra_data.png](images/performace_ra_data.png) -->
-<div style="text-align: center;">
-    <img src="images/performace_ra_data.png" alt="Performance of raw data" style="max-width: 30%; height: 30%;">
-</div>
+<img src="images/performace_ra_data.png" alt="Performance of raw data"  style="float: center"
+  width = 500px/>
 
 ### PCA
 
 Due to limited amount of computational resources I was able to run PCA for only 6000 components which is almost half of the total components (64*64*3 = 12288). After running PCA to decide on the number of components to retain to transform the data I calculated explained variance and plotted a screeplot which can be seen in figure 8. We can also see the 2D representation of the data after reducing it using PCA in the figure. 
 
-<div style="display: flex; justify-content: center; gap: 20px;">
+<! --- <div style="display: flex; justify-content: center; gap: 20px;">
     <div style="text-align: center;">
         <img src="images/pca_2d.png" alt="2D plot of PCA" style="max-width: 50%; height: auto;">
         <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Fig: 2D plot of PCA data</p>
@@ -68,32 +61,31 @@ Due to limited amount of computational resources I was able to run PCA for only 
     <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Fig: Scree plot of PCA components</p>
 </div>
 
-</div>
+</div> -->
 
+<img src="images/pca_2d.png" alt="2D plot of PCA" style="float: center"
+  width = 500px/>
+<img src="images/scree_plot_pca.jpg" alt="PCA Scree plot" style="float: center"
+  width = 500px/>
+
+  
 In the plot mentioned above in figure, we can observe that the data points are more spread out and separated compared to the raw data representation. This is because PCA aims to find a lower-dimensional subspace that best preserves the variance in the data, potentially making it easier to separate the classes. However, some overlap between classes is still evident, suggesting that linear methods like PCA may not be sufficient for this particular dataset.
 
 I have considered a range of values in the elbow of the scree plot above and calculated the accuracy for all the values in increments of 50 and plotted graphs to pick the number of principal components to retain. The plots can be seen below. 
 
 
-<div style="display: flex; justify-content: center; gap: 20px;">
-    <div style="text-align: center;">
-        <img src="images/variance_components_pca_final.png" alt="Fig: Variance vs components" style="max-width: 50%; height: auto;">
-        <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Fig: Variance vs components</p>
-    </div>
-
-<div style="text-align: center;">
-    <img src="images/accuracy_components_pca_final.png" alt="Fig: Accuracy vs components" style="max-width: 50%; height: auto;">
-    <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Fig: Accuracy vs components</p>
-</div>
-
-</div>
+<img src="images/variance_components_pca_final.png" alt="Fig: Variance vs components" style="float: center"
+  width = 500px/>
+<img src="images/accuracy_components_pca_final.png" alt="Fig: Accuracy vs components" style="float: center"
+  width = 500px/>
 
 From the figure 9 we can see that retaining 400 components has the highest accuracy which is 29.4\% and it retains 87.2% of variance where as 650 components are giving an accuracy of 28.8% but are retaining a variance of 89.6%. Striking a balance between the variance retained as well as getting a good accuracy is important so I have considered to retain 600 components and the metrics can be seen in the below table. 
 
 <!-- ![performance_PCa.png](images/performance_PCa.png) -->
 
 <div style="text-align: center;">
-    <img src="images/performance_PCa.png" alt="Fig: PCA performance" style="max-width: 30%; height: auto;">
+    <img src="images/performance_PCa.png" alt="Fig: PCA performance" style="float: center"
+  width = 500px/>
     <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Fig: PCA performance</p>
 </div>
 

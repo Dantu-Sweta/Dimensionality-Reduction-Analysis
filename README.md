@@ -12,13 +12,10 @@ These images were converted to RGB format using python and the images have been 
 
 The dataset has been balanced using oversampling the under-represented classes and undersampling the over-represented ones. After balancing the classes all the classes consists 2617 images making it a total of 26170 images across all the classes. 
 
-![Fig: Sample images](images/sample_images.jpg)
-
-Fig: Sample images
-
-![Fig: Labels](images/image_labels.png)
-
-Fig: Labels
+<div style="display: flex; justify-content: center; align-items: flex-start; gap: 10px;">
+    <img src="images/sample_images.jpg" alt="Sample Images" style="max-width: 48%; height: auto;">
+    <img src="images/image_labels.png" alt="Image Labels" style="max-width: 48%; height: auto;">
+</div>
 
 ### Reshaping
 

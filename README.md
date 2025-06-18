@@ -1,7 +1,5 @@
 # Dimensionality-Reduction-Analysis
 
-# Dimensionality-Reduction-Analysis
-
 Simplifying complex data by exploring dimension reduction techniques with Animal-10 dataset. Efficiency of different dimension reduction techniques is analyzed by evaluating different data representation methods.
 
 ## Dataset

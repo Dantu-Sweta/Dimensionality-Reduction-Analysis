@@ -50,19 +50,6 @@ I built a KNN classifier on the raw data after pre processing the data. I plotte
 
 Due to limited amount of computational resources I was able to run PCA for only 6000 components which is almost half of the total components (64*64*3 = 12288). After running PCA to decide on the number of components to retain to transform the data I calculated explained variance and plotted a screeplot which can be seen in figure 8. We can also see the 2D representation of the data after reducing it using PCA in the figure. 
 
-<! --- <div style="display: flex; justify-content: center; gap: 20px;">
-    <div style="text-align: center;">
-        <img src="images/pca_2d.png" alt="2D plot of PCA" style="max-width: 50%; height: auto;">
-        <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Fig: 2D plot of PCA data</p>
-    </div>
-
-<div style="text-align: center;">
-    <img src="images/scree_plot_pca.jpg" alt="PCA Scree plot" style="max-width: 50%; height: auto;">
-    <p style="font-size: 0.9em; color: #555; margin-top: 5px;">Fig: Scree plot of PCA components</p>
-</div>
-
-</div> -->
-
 <img src="images/pca_2d.png" alt="2D plot of PCA" style="float: center"
   width = 500px/>
 <img src="images/scree_plot_pca.jpg" alt="PCA Scree plot" style="float: center"
